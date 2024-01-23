@@ -5,10 +5,15 @@ import { CommentButton } from './CommentButton';
 import { ShareButton } from './ShareButton';
 import { SaveButton } from './SaveButton';
 
-export function Controls() {
+
+interface Inum_comments{
+  num_comments:string
+}
+
+export function Controls({num_comments}:Inum_comments) {
   return (
     <div className={styles.controls}>
-      <KarmaCounter/>
+      <KarmaCounter num_comments={num_comments}/>
       <CommentButton/>
       <div className={styles.actions}>
         <ShareButton/>

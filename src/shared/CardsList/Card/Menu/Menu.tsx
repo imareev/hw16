@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './menu.css';
+import { MenuIcon } from '../../../icons/MenuIcon';
+import { Dropdown } from '../../../Dropdown';
+import { Text } from '../../../Text/Text';
+import { CommentIcon } from '../../../icons/CommentIcon';
+import { ChareIcon } from '../../../icons/ChareIcon';
+import { HideIcon } from '../../../icons/HideIcon';
+import SaveIcon from '../../../icons/SaveIcon/SaveIcon';
+import ComplainIcon from '../../../icons/ComplainIcon/ComplainIcon';
+import { EIcon } from '../../../Icon/Icon';
+import { Icon } from '../../../Icon/Icon';
 
 export function Menu() {
   return (
     <div className={styles.menu}>
-    <button className={styles.menuButton}>
-      <svg width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="2.5" cy="2.5" r="2.5" fill="#D9D9D9"/>
-      <circle cx="2.5" cy="10" r="2.5" fill="#D9D9D9"/>
-      <circle cx="2.5" cy="17.5" r="2.5" fill="#D9D9D9"/>
-      </svg>
-    </button>
+      <Dropdown button={<button className={styles.menuButton} ><MenuIcon /></button>}>
+          <div className={styles.dropdown}  >
+            <Text size={14}>
+              <ul >
+                <li className={styles.dropdownPoint}><Icon size={15}>{EIcon.Comment}</Icon>Комментарии</li>
+                <li className={styles.dropdownPoint}><Icon size={15}>{EIcon.Chare}</Icon>Поделиться</li>
+                <li className={styles.dropdownPoint}><Icon size={15}>{EIcon.Hide}</Icon>Скрыть</li>
+                <li className={styles.dropdownPoint}><Icon size={15}>{EIcon.Save}</Icon>Сохранить</li>
+                <li className={`${styles.dropdownPoint} ${styles.dropdownLastPoint} `}> <Icon size={15}>{EIcon.Complain}</Icon>Пожаловаться</li>
+
+              </ul>
+            </Text>
+          </div>
+      </Dropdown>
+    
     </div>
   );
 }

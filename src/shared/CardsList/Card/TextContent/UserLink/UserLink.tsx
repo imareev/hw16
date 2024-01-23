@@ -1,14 +1,19 @@
 import React from 'react';
 import styles from './userlink.css';
 
-export function UserLink() {
+interface TextContentProps {
+  author: string;
+  icon_img: string;
+}
+
+export function UserLink({author,icon_img}:TextContentProps) {
   return (
     <div className={styles.userLink}>
-            <img className={styles.avatar}
-              src='https://sun9-46.userapi.com/impg/U6tLoK1tBz-_MxbRcKYHjbn9L-VL7b1RvXXmVw/B--asQfzoB0.jpg?size=883x684&quality=96&sign=7edeb9f1e9adb5c77d421a7fa1a49812&type=album'
-              alt="avatar" 
-              />
-            <a href="#post-url" className={styles.username}>Мареев Иван</a>
-      </div>
+      <img className={styles.avatar}
+        src={icon_img}
+        alt="avatar" 
+      />
+      <a href="#post-url" className={styles.username}>{author} &nbsp;</a>
+    </div>
   );
 }

@@ -1,12 +1,23 @@
 import React from 'react';
 import styles from './title.css';
+import { Post } from '../../../../Content/Post';
+import { CommentsContextProvider } from '../../../../context/commentsContext';
+import { Link, Route } from 'react-router-dom'
 
-export function Title() {
+interface ITitle {
+  title: string,
+  id: string;
+}
+
+export function Title({ title, id }: ITitle) {
+
+
   return (
     <h2 className={styles.title}>
-          <a href='#post-url' className={styles.postLink}>
-            Следует отметить ,что новая модель организационной деятельности овиаолваа опа вот таки едела так то
-          </a>
-        </h2>
+      <Link to={`/posts/${1}`} className={styles.postLink}>
+        {title}
+      </Link>
+      
+    </h2>
   );
 }
